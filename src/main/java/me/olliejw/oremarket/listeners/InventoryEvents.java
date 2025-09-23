@@ -1,6 +1,7 @@
 package me.olliejw.oremarket.listeners;
 
 import me.olliejw.oremarket.OreMarket;
+import me.olliejw.oremarket.chat.ValueUpdates;
 import me.olliejw.oremarket.menus.MainGUI;
 import me.olliejw.oremarket.utils.Placeholders;
 import org.bukkit.*;
@@ -51,6 +52,9 @@ public class InventoryEvents implements Listener {
             }
         }
         OreMarket.main().saveGuiConfig();
+        
+        // 检查价格变动并发送提醒
+        valueUpdates.checkAndAnnouncePriceChange(slot);
     }
     private double balance (HumanEntity player) {
         return OreMarket.getEconomy().getBalance((OfflinePlayer) player);
@@ -59,6 +63,7 @@ public class InventoryEvents implements Listener {
     String title = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(OreMarket.main().getGuiConfig().getString("gui.title")));
     Placeholders plh = new Placeholders();
     MainGUI mainGUI = new MainGUI();
+    ValueUpdates valueUpdates = new ValueUpdates();
 
     @EventHandler
     public void clickEvent (InventoryClickEvent event) {

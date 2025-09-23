@@ -2,7 +2,7 @@
 # Value = Current cost of ore. (With % change)
 # When adding a new ore make the cost and value to same
 
-prefix: '&b矿石市场 '
+prefix: '&b矿物市场 '
 
 # Logs.txt settings. More soon
 logs:
@@ -10,10 +10,11 @@ logs:
 
 valuemessage:
   enabled: true
-  # Time (in minutes) to send this message
-  time: 5
-  # The below will look like: (These values are just examples)
-  # "Diamond is now valued at $500 ($250 / 200% change from the original $250). 100 left in stock!"
+  # 价格变化百分比阈值，当物品价格变动超过此值时触发提醒
+  change_threshold: 5
+  # 最小提醒间隔（秒），防止短时间内重复发送同一物品的提醒
+  cooldown_seconds: 60
+  # 提醒消息格式
   format: >
     [name] 现在的价格是 $[value]（$[change] / 从原始价格 $[cost] 起变动了 [percent]%）。库存剩余 [stock] 个！
 
