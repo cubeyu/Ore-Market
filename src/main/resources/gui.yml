@@ -1,8 +1,10 @@
-# Customise the GUI here! View the GitHub wiki to utilise all of OreMarkets features
+# 矿物市场 GUI 配置文件
+# 本配置支持多种自定义功能，包括物品交易、玩家头颅、特殊标志和命令等
+# 查看 GitHub wiki 获取更多功能说明
 
 gui:
   title: '&4矿物市场'
-  rows: 3
+  rows: 4
 
 items:
   
@@ -75,6 +77,51 @@ items:
     cost: 1250
     value: 4.076995536467455
     stock: 587
+    
+  # 示例：仅可购买物品
+  '30':
+    item: DIAMOND_BLOCK
+    name: '&b钻石块'
+    lore:
+    - '&a价值: $[value]'
+    - '&a原价: $[cost]'
+    - '&a库存: [stock]'
+    - '&7仅可购买此物品'
+    cost: 9000
+    value: 9000
+    stock: 10
+    flags:
+      buyonly: true
+      buy-sound: BLOCK_ANVIL_USE
+      
+  # 示例：仅可出售物品
+  '31':
+    item: NETHERITE_SCRAP
+    name: '&d下界合金碎片'
+    lore:
+    - '&a价值: $[value]'
+    - '&a原价: $[cost]'
+    - '&a库存: [stock]'
+    - '&7仅可出售此物品'
+    cost: 625
+    value: 625
+    stock: 200
+    flags:
+      sellonly: true
+      sell-sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  
+  # 示例：玩家头颅
+  '32':
+    item: PLAYER_HEAD
+    head: 'Steve'
+    name: '&6管理员头颅'
+    lore:
+    - '&7点击查看信息'
+    flags:
+      copymeta: true
+    commands:
+    - '[msg] 这是管理员头颅示例'
+    - '[close]'
   
   # Command Items
   '18':
@@ -93,6 +140,19 @@ items:
     - '&c点击关闭'
     commands:
     - '[close]'
+    flags:
+      hide: true
+  # 示例：自定义命令按钮
+  '25':
+    item: BOOK
+    name: '&b市场帮助'
+    lore:
+    - '&7点击查看帮助信息'
+    commands:
+    - '[msg] &a=== 市场帮助 ==='
+    - '[msg] &7右键点击: 购买物品'
+    - '[msg] &7左键点击: 出售物品'
+    - '[msg] &7物品价值会随市场变化'
     flags:
       hide: true
   
@@ -182,17 +242,45 @@ items:
     name: ' '
     flags:
       hide: true
-  '25':
-    item: RED_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
+  # 25槽位已被帮助按钮占用
   '10':
     item: GREEN_STAINED_GLASS_PANE
     name: ' '
     flags:
       hide: true
   '16':
+    item: GREEN_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  # 额外的样式物品（第4行）
+  '27':
+    item: GREEN_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  '28':
+    item: GREEN_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  '29':
+    item: GREEN_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  # 30-32槽位已被示例物品占用
+  '33':
+    item: GREEN_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  '34':
+    item: GREEN_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  '35':
     item: GREEN_STAINED_GLASS_PANE
     name: ' '
     flags:
