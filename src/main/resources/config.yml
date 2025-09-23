@@ -1,8 +1,12 @@
 # Cost = Initial cost of ore. (0% change)
 # Value = Current cost of ore. (With % change)
 # When adding a new ore make the cost and value to same
-#本插件由cubeyu所写,作者qq:3144855127
 
+#/openmarket or /om	oremarket.open	Opens the OreMarket GUI
+#/om-reload	oremarket.reload	Reloads the OreMarket Config
+#/om-stats	oremarket.stats	View the server specific stats
+#/om-crash	oremarket.crash	Crashes the market
+#本插件由cubeyu所写,作者qq:3144855127
 prefix: '&b矿物市场'
 
 # Logs.txt settings. More soon
