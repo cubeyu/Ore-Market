@@ -19,6 +19,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 2
     value: 2
     stock: 4000
@@ -35,6 +37,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 15
     value: 15
     stock: 1000
@@ -51,6 +55,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 2
     value: 2
     stock: 4000
@@ -67,6 +73,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 18
     value: 18
     stock: 1000
@@ -83,6 +91,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 25
     value: 25
     stock: 1000
@@ -99,6 +109,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 10
     value: 10
     stock: 2000
@@ -115,6 +127,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 100
     value: 100
     stock: 500
@@ -133,6 +147,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 50
     value: 50
     stock: 8000
@@ -149,6 +165,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 17
     value: 17
     stock: 900
@@ -165,6 +183,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 15
     value: 15
     stock: 1200
@@ -181,6 +201,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 20
     value: 20
     stock: 1000
@@ -197,6 +219,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 45
     value: 45
     stock: 1000
@@ -213,6 +237,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 8
     value: 8
     stock: 4000
@@ -229,6 +255,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 100
     value: 100
     stock: 500
@@ -247,6 +275,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 150
     value: 150
     stock: 500
@@ -263,6 +293,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 2000
     value: 2000
     stock: 100
@@ -281,6 +313,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 3
     value: 3
     stock: 4200
@@ -297,6 +331,8 @@ items:
     - '&a变动: [percent]%'
     - '&7左键购买'
     - '&7右键出售'
+    - '&7Shift+左键批量购买64个'
+    - '&7Shift+右键出售全部矿物'
     cost: 10
     value: 10
     stock: 2200
@@ -311,6 +347,7 @@ items:
     - '&a原价: $[cost]'
     - '&a库存: [stock]'
     - '&7仅可出售此物品'
+    - '&7Shift+右键出售全部矿物'
     cost: 500
     value: 500
     stock: 200
