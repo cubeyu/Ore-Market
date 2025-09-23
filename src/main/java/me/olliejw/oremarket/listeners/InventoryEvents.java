@@ -278,12 +278,6 @@ public class InventoryEvents implements Listener {
                     return;
                 }
 
-                if (!(playerInventory.containsAtLeast(clickedItem, 1))) {
-                    String message = OreMarket.main().getMsgConfig().getString("messages.no-item", "&cYou don't have that item!");
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
-                    return;
-                }
-
                 // 计算玩家背包中该物品的总数
                 int totalAmount = 0;
                 for (ItemStack item : playerInventory.getContents()) {
@@ -293,34 +287,51 @@ public class InventoryEvents implements Listener {
                 }
                 
                 if (totalAmount <= 0) {
-                    player.sendMessage(ChatColor.RED + "你没有要出售的物品！");
+                    String message = OreMarket.main().getMsgConfig().getString("messages.no-item", "&cYou don't have that item!");
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
                     return;
                 }
 
                 double totalValue = 0;
                 int itemStock = OreMarket.main().getGuiConfig().getInt("items." + slot + ".stock");
+                boolean hasCopymeta = OreMarket.main().getGuiConfig().getBoolean("items." + slot + ".flags.copymeta");
+                ItemStack itemToRemove = hasCopymeta ? event.getCurrentItem() : clickedItem;
+                
+                // 先移除物品，确保物品确实被移除
+                int removedCount = 0;
+                ItemStack[] contents = playerInventory.getContents();
+                for (int i = 0; i < contents.length; i++) {
+                    ItemStack item = contents[i];
+                    if (item != null && (hasCopymeta ? item.isSimilar(itemToRemove) : item.isSimilar(clickedItem))) {
+                        removedCount += item.getAmount();
+                        contents[i] = null; // 直接清空该槽位
+                    }
+                }
+                playerInventory.setContents(contents); // 更新整个背包
 
-                // 移除玩家背包中的所有该物品
-                playerInventory.removeItem(clickedItem.clone());
+                if (removedCount <= 0) {
+                    player.sendMessage(ChatColor.RED + "出售失败，无法移除物品！");
+                    return;
+                }
 
                 if (OreMarket.main().getGuiConfig().getString("items." + slot + ".flags.sell-sound") != null) {
                     playerObj.playSound(playerObj.getLocation(), Sound.valueOf(OreMarket.main().getGuiConfig().getString("items." + slot + ".flags.sell-sound")), 1f, 1f);
                 }
 
                 // 多次调用changePlayerBalance以保持价格变动逻辑
-                for (int i = 0; i < totalAmount; i++) {
+                for (int i = 0; i < removedCount; i++) {
                     double itemValue = OreMarket.main().getGuiConfig().getDouble("items." + slot + ".value"); // 获取更新后的价格
                     changePlayerBalance(itemValue, player, false, slot);
                     totalValue += calculateTotalWithTax(itemValue); // 累加税后价值
                 }
                 
-                OreMarket.main().getGuiConfig().set("items." + slot + ".stock", itemStock + totalAmount);
+                OreMarket.main().getGuiConfig().set("items." + slot + ".stock", itemStock + removedCount);
                 OreMarket.main().saveGuiConfig();
 
                 String message = OreMarket.main().getMsgConfig().getString("messages.successfully-sold", "&aYou have successfully sold this item!");
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', message.replace("this item", totalAmount + " items")));
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', message.replace("this item", removedCount + " items")));
                 assert keySection != null;
-                OreMarket.main().logToFile(playerObj.getDisplayName() + " successfully sold " + totalAmount + "x " + OreMarket.main().getGuiConfig().getString("items." + slot + ".name") + " for $" + totalValue);
+                OreMarket.main().logToFile(playerObj.getDisplayName() + " successfully sold " + removedCount + "x " + OreMarket.main().getGuiConfig().getString("items." + slot + ".name") + " for $" + totalValue);
             }
 
             mainGUI.createGUI((Player) player); // Reload GUI
