@@ -12,6 +12,7 @@ commands:
   openmarket:
     description: Opens OreMarket GUI
     usage: /<command>
+    aliases: [om]
   om-reload:
     description: Reloads OreMarket
     usage: /<command>

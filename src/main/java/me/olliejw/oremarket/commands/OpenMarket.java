@@ -12,7 +12,7 @@ public class OpenMarket implements CommandExecutor {
     MainGUI mainGUI = new MainGUI();
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("openmarket")) {
+        if (command.getName().equalsIgnoreCase("openmarket") || command.getName().equalsIgnoreCase("om")) {
             if (sender.hasPermission("oremarket.open")) {
                 mainGUI.createGUI((Player) sender);
             } else {
