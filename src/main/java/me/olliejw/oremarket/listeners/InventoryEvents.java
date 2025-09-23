@@ -23,7 +23,7 @@ public class InventoryEvents implements Listener {
         double tax = OreMarket.main().getConfig().getDouble("tax", 0.0);
         return price - ((price/100) * tax);
     }
-    private void changePlayerBalance(double previous, HumanEntity player, boolean operation, int Slot) { // Buy
+    private void changePlayerBalance(double previous, HumanEntity player, boolean operation, int slot) { // Buy
         /**
          @param previous = Ore Value before any changes
          @param player = Player whose balance will be changes
@@ -35,15 +35,15 @@ public class InventoryEvents implements Listener {
 
         if (previous > 0) {
             if (operation) {
-                OreMarket.getEconomy().withdrawPlayer((OfflinePlayer) player, previous));
-                OreMarket.main().getGuiConfig().set("items." + Slot + ".value",
+                OreMarket.getEconomy().withdrawPlayer((OfflinePlayer) player, previous);
+                OreMarket.main().getGuiConfig().set("items." + slot + ".value",
                         previous+(total*OreMarket.main().getConfig().getDouble("multiplier")));
                         // 1000 + (120 x 0.01)
                         // 1000 + 1.12
                         // 1000 -> 1001.12
             } else {
                 OreMarket.getEconomy().depositPlayer((OfflinePlayer) player, total);
-                OreMarket.main().getGuiConfig().set("items." + Slot + ".value",
+                OreMarket.main().getGuiConfig().set("items." + slot + ".value",
                         previous-(total*OreMarket.main().getConfig().getDouble("multiplier")));
                         // 1000 - (80 x 0.01)
                         // 1000 - 0.08
@@ -52,8 +52,8 @@ public class InventoryEvents implements Listener {
         }
         OreMarket.main().saveGuiConfig();
     }
-    private double balance (HumanEntity Player) {
-        return OreMarket.getEconomy().getBalance((OfflinePlayer) Player);
+    private double balance (HumanEntity player) {
+        return OreMarket.getEconomy().getBalance((OfflinePlayer) player);
     }
 
     String title = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(OreMarket.main().getGuiConfig().getString("gui.title")));

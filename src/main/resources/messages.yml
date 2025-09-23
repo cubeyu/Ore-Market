@@ -1,15 +1,15 @@
 messages:
   # GUI
-  sell-only: "&cThis item can only be sold!"
-  buy-only: "&cThis item can only be bought"
-  no-item: "&cYou don't have that item!"
-  insufficient-balance: "&cYou don't have enough money to buy this item!"
-  price-too-low: "&cPrice of item is too low for buying!"
-  no-stocks: "&cMarket is run out of item stocks!"
-  successfully-bought: "&aYou have successfully bought the item!"
-  successfully-sold: "&aYou have successfully sold the item!"
+  sell-only: "&c此物品只能出售！"
+  buy-only: "&c此物品只能购买！"
+  no-item: "&c你没有该物品！"
+  insufficient-balance: "&c你的余额不足，无法购买此物品！"
+  price-too-low: "&c该物品的价格太低，无法购买！"
+  no-stocks: "&c市场中的该物品已售罄！"
+  successfully-bought: "&a你已成功购买该物品！"
+  successfully-sold: "&a你已成功出售该物品！"
   # Market Crash
-  market-crash: "&4&lMARKET CRASH! ORE VALUES DECREASED BY UP TO [amount]%"
+  market-crash: "&4&l市场崩溃！矿石价值最多下降了 [amount]%"
   # Commands
-  insufficient-permission: "&cYou do not have permission to do this!"
-  reload: "&aReloaded successfully. Some options may require a restart to take place."
+  insufficient-permission: "&c你没有权限执行此操作！"
+  reload: "&a重新加载成功。某些选项可能需要重启才能生效。"

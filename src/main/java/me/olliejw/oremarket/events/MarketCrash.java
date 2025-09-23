@@ -19,7 +19,8 @@ public class MarketCrash implements Listener {
             String message = ChatColor.translateAlternateColorCodes('&', notification).replace("[amount]", Objects.requireNonNull(OreMarket.main().getConfig().getString("marketcrash.amount")));
             player.sendMessage(message);
 
-            player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 10.0F, 1);
+            // 使用兼容1.21的声音枚举
+            player.playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 10.0F, 1);
         }
 
         // Change value

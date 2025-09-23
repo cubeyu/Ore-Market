@@ -2,7 +2,7 @@
 # Value = Current cost of ore. (With % change)
 # When adding a new ore make the cost and value to same
 
-prefix: '&bOreMarket '
+prefix: '&b矿石市场 '
 
 # Logs.txt settings. More soon
 logs:
@@ -15,23 +15,21 @@ valuemessage:
   # The below will look like: (These values are just examples)
   # "Diamond is now valued at $500 ($250 / 200% change from the original $250). 100 left in stock!"
   format: >
-    [name] is now valued at $[value] ($[change] / [percent]% change from the original $[cost]). [stock] left in stock!
+    [name] 现在的价格是 $[value]（$[change] / 从原始价格 $[cost] 起变动了 [percent]%）。库存剩余 [stock] 个！
 
-# Tax (%) is added to every purchase and sale
+# Tax（%）被添加到每次购买和销售中
 tax: 10
 
-# Multiplier (%) amount ore value changes. (Example: If it is 5 multiplier, Value would go from $1000 -> $1050 if sold, or $1000 -> $950 if bought)
-# Depending on the popularity of your server, you may want to lower this
-# Default: 0.01 (RECOMMENDED)
+#乘数（%）值变化的数量。（例如：如果是5乘数，价值将从$1000 -> $1050卖出，或$1000 -> $950买入）
+#根据你的服务器的受欢迎程度，你可能想要降低这个值
+# Default: 0.01（推荐）
 multiplier: 0.01
 
-# Market Crash is an event that completely kills the values of ores just like real life.
-# As this is experimental I recommend that you do not enable this with a server full of people
+#市场崩溃是一个事件，完全杀死的价值的矿石，就像现实生活。
+#由于这是实验性的，我建议您不要在满是人的服务器上启用此功能
 marketcrash:
   enabled: false
   time: 8 # Hours to repeat
   amount: 80 # Amount (%) the values of ores will decrease
   message: >
-    &4&lMARKET CRASH! ORE VALUES DECREASED BY UP TO [amount]%
-
-
+    &4&l市场崩溃！矿石价值最多下降了 [amount]%

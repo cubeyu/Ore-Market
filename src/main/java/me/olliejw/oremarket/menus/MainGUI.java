@@ -25,15 +25,27 @@ public class MainGUI implements Listener {
     SkullMeta skullMeta;
 
     public void createGUI (Player player) {
+        // Create a new inventory each time to avoid issues
+        inv = Bukkit.createInventory(null, rows*9, ChatColor.translateAlternateColorCodes('&', title));
+        
         for (String key : Objects.requireNonNull(OreMarket.main().getGuiConfig().getConfigurationSection("items")).getKeys(false)) {
             ConfigurationSection keySection = Objects.requireNonNull(OreMarket.main().getGuiConfig().getConfigurationSection("items")).getConfigurationSection(key);
             assert keySection != null;
 
             // Getting the item type
-            ItemStack item = new ItemStack(Objects.requireNonNull(Material.matchMaterial(Objects.requireNonNull(keySection.getString("item")))));
+            String materialName = keySection.getString("item");
+            assert materialName != null;
+            Material material = Material.matchMaterial(materialName);
+            if (material == null) {
+                // If material is not found, default to stone
+                material = Material.STONE;
+                OreMarket.main().getLogger().warning("Invalid material: " + materialName + " for item " + key);
+            }
+            ItemStack item = new ItemStack(material);
 
             // Getting the item meta
-            ItemMeta meta = item.getItemMeta(); assert meta != null;
+            ItemMeta meta = item.getItemMeta();
+            assert meta != null;
             String name = keySection.getString("name");
 
             // Get the lore from config
@@ -54,22 +66,33 @@ public class MainGUI implements Listener {
             item.setItemMeta(meta);
 
             // Player head?
-            if (Objects.requireNonNull(keySection.getString("item")).equals("PLAYER_HEAD")) {
-                skullMeta = (SkullMeta) item.getItemMeta();
-                String skullID = keySection.getString("head");
-                assert skullMeta != null;
-                assert skullID != null;
-                skullMeta.setOwningPlayer(Objects.requireNonNull(Bukkit.getPlayer(skullID)).getPlayer());
-                skullMeta.setLore(lore);
-                skullMeta.setDisplayName(plh.format(name, player, keySection));
-                item.setItemMeta(skullMeta);
+            if (materialName.equals("PLAYER_HEAD") || materialName.equals("PLAYER_HEAD")) {
+                if (meta instanceof SkullMeta) {
+                    skullMeta = (SkullMeta) meta;
+                    String skullID = keySection.getString("head");
+                    if (skullID != null) {
+                        Player skullOwner = Bukkit.getPlayer(skullID);
+                        if (skullOwner != null) {
+                            skullMeta.setOwningPlayer(skullOwner);
+                            skullMeta.setLore(lore);
+                            skullMeta.setDisplayName(plh.format(name, player, keySection));
+                            item.setItemMeta(skullMeta);
+                        }
+                    }
+                }
             }
 
-
-            // Set items and open GUI
-            inv.setItem(Integer.parseInt(key), item);
-            player.openInventory(inv);
+            // Set items
+            try {
+                int slot = Integer.parseInt(key);
+                inv.setItem(slot, item);
+            } catch (NumberFormatException e) {
+                OreMarket.main().getLogger().warning("Invalid slot number: " + key);
+            }
         }
+        
+        // Open GUI after all items are set
+        player.openInventory(inv);
     }
     public SkullMeta getSkullMeta() {
         return skullMeta;

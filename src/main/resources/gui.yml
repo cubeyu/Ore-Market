@@ -1,22 +1,22 @@
 # Customise the GUI here! View the GitHub wiki to utilise all of OreMarkets features
 
 gui:
-  title: '&4OreMarket'
+  title: '&4矿物市场'
   rows: 3
 
 items:
-
+  
   # Buyable items
   '11':
     item: DIAMOND
-    name: '&bDiamond Ore'
+    name: '&b钻石'
     lore:
-      - '&aValue: $[value]'
-      - '&aOriginal: $[cost]'
-      - '&aStock: [stock]'
-      - '&aChange: [percent]%'
-      - '&7Right-Click to buy'
-      - '&7Left-Click to sell'
+    - '&a价值: $[value]'
+    - '&a原价: $[cost]'
+    - '&a库存: [stock]'
+    - '&a变动: [percent]%'
+    - '&7右键购买'
+    - '&7左键出售'
     cost: 1000
     value: 1000
     stock: 25
@@ -25,77 +25,77 @@ items:
       sell-sound: BLOCK_CHEST_OPEN
   '12':
     item: GOLD_INGOT
-    name: '&6Gold Ingot'
+    name: '&6金锭'
     lore:
-      - '&aValue: $[value]'
-      - '&aOriginal: $[cost]'
-      - '&aStock: [stock]'
-      - '&aChange: [percent]%'
-      - '&7Right-Click to buy'
-      - '&7Left-Click to sell'
+    - '&a价值: $[value]'
+    - '&a原价: $[cost]'
+    - '&a库存: [stock]'
+    - '&a变动: [percent]%'
+    - '&7右键购买'
+    - '&7左键出售'
     cost: 500
     value: 500
     stock: 50
   '13':
     item: IRON_INGOT
-    name: '&7Iron Ore'
+    name: '&7铁锭'
     lore:
-      - '&aValue: $[value]'
-      - '&aOriginal: $[cost]'
-      - '&aStock: [stock]'
-      - '&aChange: [percent]%'
-      - '&7Right-Click to buy'
-      - '&7Left-Click to sell'
+    - '&a价值: $[value]'
+    - '&a原价: $[cost]'
+    - '&a库存: [stock]'
+    - '&a变动: [percent]%'
+    - '&7右键购买'
+    - '&7左键出售'
     cost: 250
     value: 250
     stock: 100
   '14':
     item: NETHERITE_INGOT
-    name: '&dNetherite Ore'
+    name: '&d下界合金锭'
     lore:
-      - '&aValue: $[value]'
-      - '&aOriginal: $[cost]'
-      - '&aStock: [stock]'
-      - '&aChange: [percent]%'
-      - '&7Right-Click to buy'
-      - '&7Left-Click to sell'
+    - '&a价值: $[value]'
+    - '&a原价: $[cost]'
+    - '&a库存: [stock]'
+    - '&a变动: [percent]%'
+    - '&7右键购买'
+    - '&7左键出售'
     cost: 2500
-    value: 2500
-    stock: 10
+    value: 2758.784648783022
+    stock: 0
   '15':
     item: EMERALD
-    name: '&aEmerald'
+    name: '&a绿宝石'
     lore:
-      - '&aValue: $[value]'
-      - '&aOriginal: $[cost]'
-      - '&aStock: [stock]'
-      - '&aChange: [percent]%'
-      - '&7Right-Click to buy'
-      - '&7Left-Click to sell'
+    - '&a价值: $[value]'
+    - '&a原价: $[cost]'
+    - '&a库存: [stock]'
+    - '&a变动: [percent]%'
+    - '&7右键购买'
+    - '&7左键出售'
     cost: 1250
-    value: 1250
-    stock: 15
-
+    value: 4.076995536467455
+    stock: 587
+  
   # Command Items
   '18':
     item: PAPER
-    name: '&aBalance'
+    name: '&a余额'
     lore:
-      - '&a$[balance]'
+    - '&a$[balance]'
     commands:
-      - '[msg] Your balance: [balance]'
+    - '[msg] 你的余额: [balance]'
     flags:
       hide: true
   '26':
     item: BARRIER
-    name: '&cClose'
+    name: '&c关闭界面'
     lore:
-      - '&cClose GUI'
+    - '&c点击关闭'
     commands:
-      - '[close]'
+    - '[close]'
     flags:
       hide: true
-
+  
   # Style items
   '9':
     item: RED_STAINED_GLASS_PANE
