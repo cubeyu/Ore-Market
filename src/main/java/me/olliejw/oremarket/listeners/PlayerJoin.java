@@ -14,7 +14,7 @@ public class PlayerJoin implements Listener {
     public void playerJoin (PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        if(player.isOp()) {
+        if(player.isOp() && OreMarket.main().getConfig().getBoolean("updates.player_notification", true)) {
             new Updates(OreMarket.main(), 91015).getVersion(version -> {
                 updates.notify(player, OreMarket.main().getDescription().getVersion(), version);
             });

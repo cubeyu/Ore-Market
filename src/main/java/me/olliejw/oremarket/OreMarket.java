@@ -48,22 +48,18 @@ public final class OreMarket extends JavaPlugin implements Listener {
         logToFile("Started OreMarket");
 
         // Spigot and bStats
-        new Updates(this, 91015).getVersion(version -> {
-            if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
-                this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "   ___   __  __ ");
-                this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "  / _ \\ |  \\/  |     " + ChatColor.GREEN +"OreMarket v"+this.getDescription().getVersion());
-                this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + " | (_) || |\\/| |     " + ChatColor.GREEN +"Up to date!");
-                this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "  \\___/ |_|  |_|");
-                this.getServer().getConsoleSender().sendMessage("");
-            }
-            else {
-                this.getServer().getConsoleSender().sendMessage(ChatColor.RED + "   ___   __  __ ");
-                this.getServer().getConsoleSender().sendMessage(ChatColor.RED + "  / _ \\ |  \\/  |     " + ChatColor.RED +"OreMarket v"+this.getDescription().getVersion());
-                this.getServer().getConsoleSender().sendMessage(ChatColor.RED + " | (_) || |\\/| |     " + ChatColor.GREEN + "v" + version + " now available!");
-                this.getServer().getConsoleSender().sendMessage(ChatColor.RED + "  \\___/ |_|  |_|     " + ChatColor.GREEN + "Download at spigotmc.org");
-                this.getServer().getConsoleSender().sendMessage("");
-            }
-        });
+        if (this.getConfig().getBoolean("updates.enabled", true)) {
+            new Updates(this, 91015).getVersion(version -> {
+                if (this.getConfig().getBoolean("updates.console_notification", true)) {
+                    if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                            this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "OreMarket v" + this.getDescription().getVersion() + " - " + ChatColor.GREEN + "Up to date!");
+                        }
+                        else {
+                            this.getServer().getConsoleSender().sendMessage(ChatColor.RED + "OreMarket v" + this.getDescription().getVersion() + " - " + ChatColor.GREEN + "Update v" + version + " available! Download at spigotmc.org");
+                        }
+                }
+            });
+        }
         final Metrics metrics = new Metrics(this, 10961);
         metrics.addCustomChart(new Metrics.SingleLineChart("total_values", new Callable<Integer>() {
             @Override

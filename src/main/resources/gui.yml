@@ -1,10 +1,10 @@
 # 矿物市场 GUI 配置文件
 # 本配置支持多种自定义功能，包括物品交易、玩家头颅、特殊标志和命令等
 # 查看 GitHub wiki 获取更多功能说明
-
+#本插件由cubeyu所写,作者qq:3144855127
 gui:
-  title: '&4原矿市场'
-  rows: 4
+  title: '&a&l原矿市场'
+  rows: 5
 
 items:
   
@@ -122,7 +122,7 @@ items:
       buy-sound: BLOCK_ANVIL_PLACE
       sell-sound: BLOCK_CHEST_OPEN
   
-  # 深层矿石和下界矿石（第3行）
+  # 深层矿石（第3行）
   '19':
     item: DEEPSLATE_COAL_ORE
     name: '&8深层煤矿石'
@@ -219,9 +219,25 @@ items:
     flags:
       buy-sound: BLOCK_ANVIL_PLACE
       sell-sound: BLOCK_CHEST_OPEN
-  
-  # 珍稀矿石（第3-4行）
   '25':
+    item: DEEPSLATE_DIAMOND_ORE
+    name: '&b深层钻石矿石'
+    lore:
+    - '&a价值: $[value]'
+    - '&a原价: $[cost]'
+    - '&a库存: [stock]'
+    - '&a变动: [percent]%'
+    - '&7左键购买'
+    - '&7右键出售'
+    cost: 100
+    value: 100
+    stock: 500
+    flags:
+      buy-sound: BLOCK_ANVIL_PLACE
+      sell-sound: BLOCK_CHEST_OPEN
+  
+  # 珍稀矿石（第4行）
+  '28':
     item: EMERALD_ORE
     name: '&a绿宝石矿石'
     lore:
@@ -237,7 +253,7 @@ items:
     flags:
       buy-sound: BLOCK_ANVIL_PLACE
       sell-sound: BLOCK_CHEST_OPEN
-  '26':
+  '29':
     item: DEEPSLATE_EMERALD_ORE
     name: '&a深层绿宝石矿石'
     lore:
@@ -253,6 +269,8 @@ items:
     flags:
       buy-sound: BLOCK_ANVIL_PLACE
       sell-sound: BLOCK_CHEST_OPEN
+  
+  # 下界矿石（第5行）
   '30':
     item: NETHER_QUARTZ_ORE
     name: '&f下界石英矿石'
@@ -301,7 +319,7 @@ items:
       sell-sound: ENTITY_EXPERIENCE_ORB_PICKUP
   
   # 功能按钮
-  '18':
+  '36':
     item: PAPER
     name: '&a余额'
     lore:
@@ -310,7 +328,7 @@ items:
     - '[msg] 你的余额: [balance]'
     flags:
       hide: true
-  '17':
+  '44':
     item: BARRIER
     name: '&c关闭界面'
     lore:
@@ -320,12 +338,7 @@ items:
     flags:
       hide: true
   
-  # Style items
-  '9':
-    item: RED_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
+  # Style items - 第一行装饰
   '0':
     item: RED_STAINED_GLASS_PANE
     name: ' '
@@ -371,81 +384,76 @@ items:
     name: ' '
     flags:
       hide: true
+  
+  # 第二行装饰
+  '9':
+    item: RED_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
   '17':
     item: RED_STAINED_GLASS_PANE
     name: ' '
     flags:
       hide: true
-  '19':
+  
+  # 第三行装饰
+  '18':
     item: RED_STAINED_GLASS_PANE
     name: ' '
     flags:
       hide: true
-  '20':
+  '26':
     item: RED_STAINED_GLASS_PANE
     name: ' '
     flags:
       hide: true
-  '21':
-    item: RED_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
-  '22':
-    item: RED_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
-  '23':
-    item: RED_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
-  '24':
-    item: RED_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
-  # 25槽位已被帮助按钮占用
-  '10':
-    item: GREEN_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
-  '16':
-    item: GREEN_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
-  # 额外的样式物品（第4行）
+
+  # 第四行装饰
   '27':
-    item: GREEN_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
-  '28':
-    item: GREEN_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
-  '29':
-    item: GREEN_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
-  # 30-32槽位已被示例物品占用
-  '33':
-    item: GREEN_STAINED_GLASS_PANE
-    name: ' '
-    flags:
-      hide: true
-  '34':
-    item: GREEN_STAINED_GLASS_PANE
+    item: RED_STAINED_GLASS_PANE
     name: ' '
     flags:
       hide: true
   '35':
-    item: GREEN_STAINED_GLASS_PANE
+    item: RED_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+
+  # 第五行装饰
+  '37':
+    item: RED_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  '38':
+    item: RED_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  '39':
+    item: RED_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  '40':
+    item: RED_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  '41':
+    item: RED_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  '42':
+    item: RED_STAINED_GLASS_PANE
+    name: ' '
+    flags:
+      hide: true
+  '43':
+    item: RED_STAINED_GLASS_PANE
     name: ' '
     flags:
       hide: true
