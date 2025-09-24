@@ -8,6 +8,8 @@ messages:
   no-stocks: "&c市场中的该物品已售罄！"
   successfully-bought: "&a你已成功购买该物品！"
   successfully-sold: "&a你已成功出售该物品！"
+  bought-cost: "&6购买花费: &c$[amount]"
+  sold-earned: "&6出售获得: &a$[amount]"
   # Market Crash
   market-crash: "&4&l市场崩溃！矿石价值最多下降了 [amount]%"
   # Commands

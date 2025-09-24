@@ -162,6 +162,11 @@ public class InventoryEvents implements Listener {
 
                 String message = OreMarket.main().getMsgConfig().getString("messages.successfully-bought", "&aYou have successfully bought the item!");
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+                
+                // 显示购买花费的金额
+                String costMessage = OreMarket.main().getMsgConfig().getString("messages.bought-cost", "&6购买花费: &c$[amount]");
+                costMessage = costMessage.replace("[amount]", String.format("%.2f", itemValue));
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', costMessage));
 
                 assert keySection != null;
                 OreMarket.main().logToFile(playerObj.getDisplayName() + " successfully bought 1x " + OreMarket.main().getGuiConfig().getString("items." + slot + ".name") + " for $" + OreMarket.main().getGuiConfig().getString("items." + slot + ".value"));
@@ -221,6 +226,11 @@ public class InventoryEvents implements Listener {
 
                 String message = OreMarket.main().getMsgConfig().getString("messages.successfully-bought", "&aYou have successfully bought the item!");
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', message.replace("the item", buyAmount + " items")));
+                
+                // 显示批量购买花费的总金额
+                String costMessage = OreMarket.main().getMsgConfig().getString("messages.bought-cost", "&6购买花费: &c$[amount]");
+                costMessage = costMessage.replace("[amount]", String.format("%.2f", totalCost));
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', costMessage));
 
                 assert keySection != null;
                 OreMarket.main().logToFile(playerObj.getDisplayName() + " successfully bought " + buyAmount + "x " + OreMarket.main().getGuiConfig().getString("items." + slot + ".name") + " for $" + totalCost);
@@ -266,6 +276,11 @@ public class InventoryEvents implements Listener {
 
                 String message = OreMarket.main().getMsgConfig().getString("messages.successfully-sold", "&aYou have successfully sold this item!");
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+                
+                // 显示出售获得的金额
+                String earnedMessage = OreMarket.main().getMsgConfig().getString("messages.sold-earned", "&6出售获得: &a$[amount]");
+                earnedMessage = earnedMessage.replace("[amount]", String.format("%.2f", calculateTotalWithTax(itemValue)));
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', earnedMessage));
                 assert keySection != null;
                 OreMarket.main().logToFile(playerObj.getDisplayName() + " successfully sold 1x " + OreMarket.main().getGuiConfig().getString("items." + slot + ".name") + " for $" + OreMarket.main().getGuiConfig().getString("items." + slot + ".value"));
             }
@@ -330,6 +345,11 @@ public class InventoryEvents implements Listener {
 
                 String message = OreMarket.main().getMsgConfig().getString("messages.successfully-sold", "&aYou have successfully sold this item!");
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', message.replace("this item", removedCount + " items")));
+                
+                // 显示批量出售获得的总金额
+                String earnedMessage = OreMarket.main().getMsgConfig().getString("messages.sold-earned", "&6出售获得: &a$[amount]");
+                earnedMessage = earnedMessage.replace("[amount]", String.format("%.2f", totalValue));
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', earnedMessage));
                 assert keySection != null;
                 OreMarket.main().logToFile(playerObj.getDisplayName() + " successfully sold " + removedCount + "x " + OreMarket.main().getGuiConfig().getString("items." + slot + ".name") + " for $" + totalValue);
             }
